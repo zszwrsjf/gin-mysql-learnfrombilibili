@@ -35,9 +35,9 @@ func LoadServer(file *ini.File) {
 // TODO muststring setting from config.ini
 func LoadData(file *ini.File) {
 	Db = file.Section("database").Key("Db").MustString("debug")
-	DbHost = file.Section("database").Key("DbHost").MustString("")
-	DbPort = file.Section("database").Key("DbPort").MustString("")
-	DbUser = file.Section("database").Key("DbUser").MustString("")
-	DbPassWord = file.Section("database").Key("DbPassWord").MustString("")
-	DbName = file.Section("database").Key("DbName").MustString("")
+	DbHost = file.Section("database").Key("DbHost").MustString("localhost")
+	DbPort = file.Section("database").Key("DbPort").MustString("3306")
+	DbUser = file.Section("database").Key("DbUser").MustString("root")
+	DbPassWord = file.Section("database").Key("DbPassWord").MustString("root")
+	DbName = file.Section("database").Key("DbName").MustString("goback")
 }
