@@ -2,8 +2,8 @@ package routes
 
 import (
 	"goback/utils"
-	"net/http"
-
+	// "net/http"
+	"goback/api/v1"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,13 +11,16 @@ func InitRouter() { // 大写是public 小写是private
 	gin.SetMode(utils.AppMode)
 	r := gin.Default()
 
-	router := r.Group("api/v1")
+	routerv1 := r.Group("api/v1")
 	{
-		router.GET("hello", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"msg": "ok",
-			})
-		})
+		// user
+		routerv1.POST("user/add", v1.AddUser)
+		routerv1.PUT("user/:id", v1.EditUser)
+		routerv1.DELETE("user/:id", v1.DeleteUser)
+		// tag
+
+		// article
+
 	}
 
 	r.Run(utils.HttpPort)
